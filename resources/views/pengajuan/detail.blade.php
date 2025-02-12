@@ -236,7 +236,7 @@
                     </tbody>
                 </table>
                 @if ($data->status === 'proses')
-                <button type="button" class="btn btn-primary w-100 mb-1 mt-3" data-bs-toggle="modal" data-bs-target="#reply-surat">
+                <button type="button" class="btn btn-success w-100 mb-1 mt-3" data-bs-toggle="modal" data-bs-target="#reply-surat">
                     <i class="fa fa-reply me-1"></i>
                     Submit Hasil Surat
                 </button>
@@ -269,7 +269,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-success">Submit</button>
                                 </div>
                             </form>
                         </div>
@@ -296,7 +296,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-success">Submit</button>
                                 </div>
                             </form>
                         </div>

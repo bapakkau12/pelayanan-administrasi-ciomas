@@ -1,6 +1,6 @@
 @extends('layouts.landing')
 @section('content')
-@section('title-page', 'Kegiatan Desa Ciomas')
+@section('title-page', 'Kegiatan Desa Cinta Kasih')
 <section class="wrapper">
     <div class="container-fluid">
         <div class="container">
@@ -8,7 +8,9 @@
                 <div class="card-body">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item"><a href="{{ route('landing') }}">Beranda</a></li>
+                        <li class="breadcrumb-item">
+                         <a href="{{ route('landing') }}" style="color: green;">Beranda</a>
+                        </li>
                             <li class="breadcrumb-item active" aria-current="page">List Kegiatan</li>
                         </ol>
                     </nav>

@@ -3,12 +3,14 @@
 
 <head>
     <meta charset="utf-8">
-    <title>DASHMIN - Bootstrap Admin Template</title>
+    <title>PELDES CK - DESA CINTA KASIH</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
 
-    <link href="img/favicon.ico" rel="icon">
+    <!-- <link href="img/favicon.ico" rel="icon"> -->
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/images/muaraenim_logo.png') }}">
+
     @include('includes.dashboard_head')
     @stack('head')
 </head>
@@ -16,15 +18,15 @@
 <body>
     <div class="container-xxl position-relative bg-white d-flex p-0">
         <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <div class="spinner-border text-success" style="width: 3rem; height: 3rem;" role="status">
                 <span class="sr-only">Loading...</span>
             </div>
         </div>
 
         <div class="sidebar pe-4 pb-3">
-            <nav class="navbar bg-light navbar-light">
+            <nav class="navbar bg-light navbar-light bg-success">
                 <a href="{{ route('landing') }}" class="navbar-brand mx-4 mb-3">
-                    <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>MIMIN DESA</h3>
+                    <h3 class="text-success">PELDES CK</h3>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
@@ -37,17 +39,24 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="{{ route('dashboard') }}" class="nav-item nav-link {{ Route::currentRouteName() === 'dashboard' ? 'active' : '' }}"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="{{ route('dashboard') }}" class="nav-item nav-link {{ Route::currentRouteName() === 'dashboard' ? 'active' : '' }}"><i class="fa fa-tachometer-alt text-success me-2"></i> <span class="ms-2 text-success">Dashboard</span></a>
+                    @if (Auth::user()->role === 'admin')
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-handshake me-2"></i>Pelayanan</a>
+                        <a href="#" class="nav-link dropdown-toggle  text-success" data-bs-toggle="dropdown"><i class="fa fa-handshake text-success me-2"></i><span class="ms-2 text-success">Pelayanan</span></a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="{{ route('pengajuan.index') }}" class="dropdown-item">Pengajuan Surat</a>
-                            <a href="{{ route('pengaduan.index') }}" class="dropdown-item">Pengaduan Masyarakat</a>
+                            <a href="{{ route('pengajuan.index') }}" class="dropdown-item  text-success"><span class="ms-2 text-success">Pengajuan Surat</span></a>
+                            <a href="{{ route('pengaduan.index') }}" class="dropdown-item"><span class="ms-2 text-success">Pengaduan Masyarakat</span></a>
                         </div>
                     </div>
-                    <a href="{{ route('kegiatan.index') }}" class="nav-item nav-link"><i class="fa fa-book me-2"></i>Kegiatan Desa</a>
-                    <a href="{{ route('penduduk.index') }}" class="nav-item nav-link {{ Route::currentRouteName() === 'penduduk.index' ? 'active' : '' }}"><i class="fa fa-address-card me-2"></i>Data Penduduk</a>
-                    <a href="{{ route('account.index') }}" class="nav-item nav-link {{ Route::currentRouteName() === 'account.index' ? 'active' : '' }}"><i class="fa fa-users me-2"></i>Manajemen Akun</a>
+                    @endif
+                    <a href="{{ route('kegiatan.index') }}" class="nav-item nav-link"><i class="fa fa-book text-success me-2"></i><span class="ms-2 text-success">Kegiatan Desa</span></a>
+                    <a href="{{ route('penduduk.index') }}" class="nav-item nav-link {{ Route::currentRouteName() === 'penduduk.index' ? 'active' : '' }}"><i class="fa fa-address-card text-success me-2"></i><span class="ms-2 text-success">Data Penduduk</span></a>
+                    @if (Auth::user()->role === 'admin')
+    <a href="{{ route('account.index') }}" class="nav-item nav-link {{ Route::currentRouteName() === 'account.index' ? 'active' : '' }}">
+        <i class="fa fa-users text-success me-2"></i><span class="ms-2 text-success">Manajemen Akun</span>
+    </a>
+@endif
+                    <!-- <a href="{{ route('account.index') }}" class="nav-item nav-link {{ Route::currentRouteName() === 'account.index' ? 'active' : '' }}"><i class="fa fa-users me-2"></i>Manajemen Akun</a> -->
                 </div>
             </nav>
         </div>
@@ -55,10 +64,10 @@
         <div class="content">
             <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
                 <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
-                    <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
+                    <h2 class="text-success mb-0"><i class="fa fa-hashtag"></i></h2>
                 </a>
                 <a href="#" class="sidebar-toggler flex-shrink-0">
-                    <i class="fa fa-bars"></i>
+                    <i class="fa fa-bars text-success"></i>
                 </a>
                 <div class="navbar-nav align-items-center ms-auto">
                     <div class="nav-item dropdown">
@@ -80,13 +89,13 @@
 
             <div class="container-fluid pt-4 px-4">
                 <div class="w-100 bg-light rounded-top p-2">
-                    <p class="p-0 m-0 text-center"> &copy; <a href="{{ route('landing') }}">Website Desa Ciomas</a>, All Right Reserved.</p>
+                    <p class="p-0 m-0 text-center"> &copy; <a href="{{ route('landing') }}"><span class="ms-2 text-success">Website Desa Cinta Kasih</span></a>, All Right Reserved.</p>
                 </div>
             </div>
         </div>
 
 
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+        <a href="#" class="btn btn-lg btn-success btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
 
     <div id="notif" class="notif {{ session('success') ? 'show' : (session('error') ? 'show' : '') }}">

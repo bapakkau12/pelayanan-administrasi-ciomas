@@ -5,7 +5,7 @@
         <div class="col-12">
             <div class="bg-light rounded p-4">
                 <h2 class="h4 mb-4">Artikel Kegiatan Desa</h2>
-                <a class="btn btn-primary mb-3" href="/admin/kegiatan/create">Tambah</a>
+                <a class="btn btn-success mb-3" href="/admin/kegiatan/create">Tambah</a>
                 <table id="kegiatan-table" class="display" style="width:100%">
                     <thead>
                         <tr>

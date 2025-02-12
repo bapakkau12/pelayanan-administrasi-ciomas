@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pengajuan_akta', function (Blueprint $table) {
+        Schema::create('pengajuan_skd', function (Blueprint $table) {
             $table->id();
-
+            
             $table->unsignedBigInteger('anggota_id');
             $table->string('no_pengajuan')->unique();
             $table->foreign('anggota_id')
@@ -22,11 +22,9 @@ return new class extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
 
+            $table->string('kk');
+            $table->string('ktp');
             $table->string('pengantar_rw');
-            $table->string('nama_anak');
-            $table->string('tempat_lahir');
-            $table->string('tanggal_lahir');
-            $table->string('surat_bidan');
             $table->string('status')->default('proses')->nullable();
             $table->timestamps();
         });
@@ -37,6 +35,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pengajuan_akta');
+        Schema::dropIfExists('pengajuan_skd');
     }
 };

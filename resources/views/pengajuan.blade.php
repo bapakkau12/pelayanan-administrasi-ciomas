@@ -1,6 +1,6 @@
 @extends('layouts.landing')
 @section('content')
-@section('title-page', 'Pengajuan Surat Desa Ciomas')
+@section('title-page', 'Pengajuan Surat Desa Cinta Kasih')
 <section class="wrapper">
     <div class="container-fluid">
         <div class="container">
@@ -26,7 +26,7 @@
                                     <label class="form-label" for="nik_pengaju">NIK Terkait</label>
                                     <input class="form-control" id="nik_pengaju" name="nik_pengaju" required>
                                 </div>
-                                <button type="button" id="tracking-btn" class="btn btn-primary">Lacak</button>
+                                <button type="button" id="tracking-btn" class="btn btn-success">Lacak</button>
                             </form>
                             <div class="mt-4">
                                 <table class="table table-sm table-striped">
@@ -52,7 +52,7 @@
                         <div class="card-body">
                             <h2 class="h5 text-uppercase mb-3">Pengajuan Baru</h2>
                             @if (!session('success') && !session('error'))
-                            <div class="alert alert-primary">
+                            <div class="alert alert-success">
                                 Pastikan agar data yang diisikan susuai ketentuan dan valid, kesalahan data berisiko keterlambatan pembuatan surat.
                             </div>
                             @endif
@@ -73,7 +73,10 @@
                                                 <option value="skw">Surat Keterangan Wali</option>
                                                 <option value="skkb">Surat Ketarangan Kelakuan Baik</option>
                                                 <option value="skbm">Surat Keterangan Belum Menikah</option>
+                                                <!-- <option value="skbm">Surat Keterangan PIndah Tanah</option> -->
                                                 <option value="skjd">Surat Keterangan Janda / Duda</option>
+                                                <option value="skd">Surat Keterangan Domisili</option>
+                                                <option value="skik">Surat Keterangan Izin Keramaian</option>
                                             </select>
                                         </div>
                                     </div>
@@ -180,7 +183,7 @@
                                     </div>
                                     <div class="mt-4">
                                         <button type="reset" class="btn btn-secondary">Reset</button>
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <button type="submit" class="btn btn-success">Submit</button>
                                     </div>
                                 </div>
                             </form>
@@ -223,7 +226,7 @@
                         <td>${item.status}</td>
                         <td>${item.created_at}</td>
                         <td>${item.pesan ? item.pesan : '-'}</td>
-                        <td><a href="/download/${item.file}" class="btn btn-primary ${item.status !== 'disetujui' ? 'disabled' : ''}">Unduh</button></td>
+                        <td><a href="/download/${item.file}" class="btn btn-success ${item.status !== 'disetujui' ? 'disabled' : ''}">Unduh</button></td>
                     </tr>
                     `
                     })
@@ -268,6 +271,12 @@
                     $(this).removeAttr('disabled');
                     $parent.removeClass('d-none');
                 } else if (tujuan === 'skjd' && ['pengantar_rw', 'kategori', 'cerai', 'nama_pasangan', 'nik'].includes(name)) {
+                    $(this).removeAttr('disabled');
+                    $parent.removeClass('d-none');
+                } else if (tujuan === 'skd' && ['pengantar_rw', 'kk', 'ktp'].includes(name)) {
+                    $(this).removeAttr('disabled');
+                    $parent.removeClass('d-none');
+                } else if (tujuan === 'skik' && ['pengantar_rw', 'ktp'].includes(name)) {
                     $(this).removeAttr('disabled');
                     $parent.removeClass('d-none');
                 } else {

@@ -1,6 +1,6 @@
 @extends('layouts.landing')
 @section('content')
-@section('title-page', 'Pemerintahan Desa Ciomas')
+@section('title-page', 'Pemerintahan Desa Cinta Kasih')
 <section class="wrapper">
     <div class="container-fluid">
         <div class="container">
@@ -8,7 +8,7 @@
                 <div class="card-body">
                     <div class="w-100 d-flex justify-content-center align-items-center mb-4 mt-2">
                         <a href="{{ route('landing') }}">
-                            <img width="80" src="{{ asset('assets/images/ciamis_logo.png') }}" alt="ciamis logo">
+                            <img width="80" src="{{ asset('assets/images/muaraenim_logo.png') }}" alt="muaraenim logo">
                         </a>
                     </div>
                     @if (session('error'))
@@ -27,7 +27,7 @@
                             <input type="password" id="password" name="password" class="form-control">
                         </div>
                         <div class="mt-4 mb-3">
-                            <button type="submit" class="btn btn-primary w-100">Masuk</button>
+                            <button type="submit" class="btn btn-success w-100">Masuk</button>
                         </div>
                     </form>
                 </div>

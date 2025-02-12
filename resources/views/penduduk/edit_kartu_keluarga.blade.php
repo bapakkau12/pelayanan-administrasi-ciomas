@@ -45,7 +45,7 @@
                     </div>
                     <div class="mt-3">
                         <button type="reset" class="btn btn-secondary">Reset</button>
-                        <button type="submit" class="btn btn-primary ms-2">Submit</button>
+                        <button type="submit" class="btn btn-success ms-2">Submit</button>
                     </div>
                 </form>
             </div>

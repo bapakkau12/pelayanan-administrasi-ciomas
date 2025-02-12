@@ -4,7 +4,7 @@
     <div class="row g-4">
         <div class="col-sm-6 col-xl-3">
             <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                <i class="fa fa-file-contract fa-3x text-primary"></i>
+                <i class="fa fa-file-contract fa-3x text-success"></i>
                 <div class="ms-3">
                     <p class="mb-2">Pengajuan</p>
                     <h6 class="mb-0">{{ $totalPengajuan }}</h6>
@@ -13,7 +13,7 @@
         </div>
         <div class="col-sm-6 col-xl-3">
             <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                <i class="fas fa-bullhorn fa-3x text-primary"></i>
+                <i class="fas fa-bullhorn fa-3x text-success"></i>
                 <div class="ms-3">
                     <p class="mb-2">Pengaduan</p>
                     <h6 class="mb-0">{{ $totalPengaduan }}</h6>
@@ -22,7 +22,7 @@
         </div>
         <div class="col-sm-6 col-xl-3">
             <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                <i class="fas fa-address-card fa-3x text-primary"></i>
+                <i class="fas fa-address-card fa-3x text-success"></i>
                 <div class="ms-3">
                     <p class="mb-2">Penduduk</p>
                     <h6 class="mb-0">{{ $totalPenduduk }}</h6>
@@ -31,7 +31,7 @@
         </div>
         <div class="col-sm-6 col-xl-3">
             <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                <i class="fas fa-list fa-3x text-primary"></i>
+                <i class="fas fa-list fa-3x text-success"></i>
                 <div class="ms-3">
                     <p class="mb-2">Kegiatan</p>
                     <h6 class="mb-0">{{ $totalKegiatan }}</h6>

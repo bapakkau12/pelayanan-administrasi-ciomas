@@ -20,6 +20,9 @@
                             <option value="Pengajuan SKL">Pengajuan SKL</option>
                             <option value="Pengajuan SKM">Pengajuan SKM</option>
                             <option value="Pengajuan SKW">Pengajuan SKW</option>
+                            <option value="Pengajuan SKD">Pengajuan SKD</option>
+                            <option value="Pengajuan SKIK">Pengajuan SKIK</option>
+
                         </select>
                     </div>
                     <div class="mb-3">
@@ -81,7 +84,7 @@
                 render: (data, type, row) => {
                     let variant = 'text-secondary';
                     if (data === "proses") {
-                        variant = 'text-primary'
+                        variant = 'text-success'
                     } else if (data === "disetujui") {
                         variant = 'text-success'
                     } else if (data === "ditolak") {

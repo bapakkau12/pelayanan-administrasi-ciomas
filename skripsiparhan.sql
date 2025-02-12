@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 12, 2023 at 03:12 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.1.17
+-- Generation Time: Feb 12, 2025 at 11:26 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `desa`
+-- Database: `skripsiparhan`
 --
 
 -- --------------------------------------------------------
@@ -48,6 +48,13 @@ CREATE TABLE `anggota_keluarga` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `anggota_keluarga`
+--
+
+INSERT INTO `anggota_keluarga` (`id`, `kk_id`, `nik`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `agama`, `pendidikan`, `pekerjaan`, `status_pernikahan`, `status_hubungan`, `kewarganegaraan`, `no_paspor`, `no_kitas`, `nama_ayah`, `nama_ibu`, `created_at`, `updated_at`) VALUES
+(1, 1, 1671170402010001, 'M.Parhan', 'laki-laki', 'Palembang', '2001-02-04', 'Islam', 'SMA Sederajat', 'mahasiswa', 'Belum Nikah', 'Anak', 'WNI', '0', NULL, 'imron', 'paulina', '2025-02-07 02:00:58', '2025-02-07 02:00:58');
 
 -- --------------------------------------------------------
 
@@ -86,6 +93,13 @@ CREATE TABLE `kartu_keluarga` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `kartu_keluarga`
+--
+
+INSERT INTO `kartu_keluarga` (`id`, `kepala_keluarga`, `no_kk`, `alamat`, `rt_rw`, `desa`, `kecamatan`, `kabupaten`, `kode_pos`, `provinsi`, `created_at`, `updated_at`) VALUES
+(1, 'imron', 123456789, 'jl.aiptu awahab', '04/02', 'Ciomas', 'Panjalu', 'Ciamis', 46264, 'Jawa Barat', '2025-02-07 01:58:00', '2025-02-07 01:58:00');
+
 -- --------------------------------------------------------
 
 --
@@ -101,6 +115,14 @@ CREATE TABLE `kegiatan` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `kegiatan`
+--
+
+INSERT INTO `kegiatan` (`id`, `title`, `slug`, `image`, `content`, `created_at`, `updated_at`) VALUES
+(1, 'BANSOS', 'bansos', 'i9BArc54GJEb8zqf5nFgQPB6PbwfbeygIrtHnrcJ.pdf', 'Segera datang kekantor desa', '2025-02-08 02:15:10', '2025-02-08 02:15:10'),
+(2, 'PENGAJIAN', 'pengajian', 'pmoZF7Xl3apzs85TbI8a0zLiMYsHPXz0QAvod7qJ.png', 'HAHAHAAHAHHAHA', '2025-02-08 02:16:01', '2025-02-08 02:16:01');
 
 -- --------------------------------------------------------
 
@@ -119,26 +141,28 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(1, '2014_10_12_000000_create_users_table', 1),
-(2, '2014_10_12_100000_create_password_reset_tokens_table', 1),
-(3, '2019_08_19_000000_create_failed_jobs_table', 1),
-(4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(5, '2023_07_08_131246_create_kartu_keluarga_table', 1),
-(6, '2023_07_08_132130_create_anggota_keluarga_table', 1),
-(7, '2023_07_11_131437_create_pengajuan_kk_table', 1),
-(8, '2023_07_11_131450_create_pengajuan_ktp_table', 1),
-(9, '2023_07_11_131514_create_pengajuan_sktm_table', 1),
-(10, '2023_07_11_131527_create_pengajuan_akta_table', 1),
-(11, '2023_07_11_131537_create_pengajuan_skm_table', 1),
-(12, '2023_07_11_131550_create_pengajuan_skl_table', 1),
-(13, '2023_07_11_131558_create_pengajuan_skw_table', 1),
-(14, '2023_07_11_131615_create_pengajuan_skkb_table', 1),
-(15, '2023_07_11_131629_create_pengajuan_skbm_table', 1),
-(16, '2023_07_11_131642_create_pengajuan_skjd_table', 1),
-(17, '2023_07_16_101352_create_surat_keluar_table', 1),
-(18, '2023_07_16_101435_create_penolakan_table', 1),
-(19, '2023_07_19_235018_create_pengaduan_table', 1),
-(20, '2023_07_26_114731_create_kegiatan_table', 1);
+(21, '2014_10_12_000000_create_users_table', 1),
+(22, '2014_10_12_100000_create_password_reset_tokens_table', 1),
+(23, '2019_08_19_000000_create_failed_jobs_table', 1),
+(24, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+(25, '2023_07_08_131246_create_kartu_keluarga_table', 1),
+(26, '2023_07_08_132130_create_anggota_keluarga_table', 1),
+(27, '2023_07_11_131437_create_pengajuan_kk_table', 1),
+(28, '2023_07_11_131450_create_pengajuan_ktp_table', 1),
+(29, '2023_07_11_131514_create_pengajuan_sktm_table', 1),
+(30, '2023_07_11_131527_create_pengajuan_akta_table', 1),
+(31, '2023_07_11_131537_create_pengajuan_skm_table', 1),
+(32, '2023_07_11_131550_create_pengajuan_skl_table', 1),
+(33, '2023_07_11_131558_create_pengajuan_skw_table', 1),
+(34, '2023_07_11_131615_create_pengajuan_skkb_table', 1),
+(35, '2023_07_11_131629_create_pengajuan_skbm_table', 1),
+(36, '2023_07_11_131642_create_pengajuan_skjd_table', 1),
+(37, '2023_07_16_101352_create_surat_keluar_table', 1),
+(38, '2023_07_16_101435_create_penolakan_table', 1),
+(39, '2023_07_19_235018_create_pengaduan_table', 1),
+(40, '2023_07_26_114731_create_kegiatan_table', 1),
+(43, '2025_02_12_080002_create_pengajuan_skd_table', 2),
+(45, '2025_02_12_091538_create_pengajuan_skik_table', 3);
 
 -- --------------------------------------------------------
 
@@ -171,6 +195,13 @@ CREATE TABLE `pengaduan` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `pengaduan`
+--
+
+INSERT INTO `pengaduan` (`id`, `nik`, `nama`, `judul`, `telp`, `is_read`, `pesan`, `image`, `created_at`, `updated_at`) VALUES
+(2, '1671170402010001', 'M.Parhan', 'Pengaduan jalan rusak', '082269035048', 'true', 'jl.desa didekat rumah pak amin rusak parah, banyak lobang besar dan belum dapat perhatian oleh pemerintah sekitar tolong segera diperbaiki', 'jDalcBDufcMPLfRgHev5HF4pBOQknfgy7Aq4MvIa.png', '2025-02-11 05:52:38', '2025-02-11 05:53:11');
+
 -- --------------------------------------------------------
 
 --
@@ -190,6 +221,13 @@ CREATE TABLE `pengajuan_akta` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `pengajuan_akta`
+--
+
+INSERT INTO `pengajuan_akta` (`id`, `anggota_id`, `no_pengajuan`, `pengantar_rw`, `nama_anak`, `tempat_lahir`, `tanggal_lahir`, `surat_bidan`, `status`, `created_at`, `updated_at`) VALUES
+(1, 1, '96d74187-a2d7-4f2d-b9a6-9ed4b6bc1dff', 'gZZeinWXgvWU5kdMxIY074s1Sh2iuhUXzO8BH5uT.png', 'AFIF', 'Cinta kasih', '2023-02-14', 'NUHFcL7a4xZF9tRqdnvkqpAC2MPrQBv8zYPAFD5B.png', 'disetujui', '2025-02-08 02:20:33', '2025-02-08 02:21:39');
 
 -- --------------------------------------------------------
 
@@ -228,6 +266,14 @@ CREATE TABLE `pengajuan_ktp` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `pengajuan_ktp`
+--
+
+INSERT INTO `pengajuan_ktp` (`id`, `anggota_id`, `no_pengajuan`, `jenis`, `pengantar_rw`, `kk`, `status`, `created_at`, `updated_at`) VALUES
+(1, 1, '9879103d-a1c6-4e29-9172-e297dc4d57ad', 'baru', 'JePjkQBcjyd8XcOdAZFltZJ9lI2CyRiCFK0Cml8k.png', 'ADVTwMsUP6BHEubcPqzN7JLuBxkQ77dLnzJi6B4G.png', 'disetujui', '2025-02-07 02:07:52', '2025-02-07 02:09:33'),
+(2, 1, '7906c8ac-92d8-45ff-a122-e1544b45a345', 'baru', 'm2i0VgIYicZgJQfp7XJtzbzepO6RuZ6XlVqM2ZI1.png', '3W1JV6gI3MptBXTfxELrWACOyCSmkbqQJeAe7eXi.png', 'ditolak', '2025-02-07 02:15:32', '2025-02-07 02:16:05');
+
 -- --------------------------------------------------------
 
 --
@@ -243,6 +289,62 @@ CREATE TABLE `pengajuan_skbm` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `pengajuan_skbm`
+--
+
+INSERT INTO `pengajuan_skbm` (`id`, `anggota_id`, `no_pengajuan`, `pengantar_rw`, `status`, `created_at`, `updated_at`) VALUES
+(1, 1, '2301631b-3794-48cd-b824-ed9ced0d3164', 'm5pBHkmLj0kyfdEO2ww3IuGHDFjiDfvBxhwcqS8u.pdf', 'proses', '2025-02-08 04:42:07', '2025-02-08 04:42:07');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pengajuan_skd`
+--
+
+CREATE TABLE `pengajuan_skd` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `anggota_id` bigint(20) UNSIGNED NOT NULL,
+  `no_pengajuan` varchar(255) NOT NULL,
+  `kk` varchar(255) NOT NULL,
+  `ktp` varchar(255) NOT NULL,
+  `pengantar_rw` varchar(255) NOT NULL,
+  `status` varchar(255) DEFAULT 'proses',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `pengajuan_skd`
+--
+
+INSERT INTO `pengajuan_skd` (`id`, `anggota_id`, `no_pengajuan`, `kk`, `ktp`, `pengantar_rw`, `status`, `created_at`, `updated_at`) VALUES
+(1, 1, 'ec6298cd-2593-4f62-93b9-31134a943754', 'C:\\xampp\\tmp\\php87A6.tmp', 'C:\\xampp\\tmp\\php87B6.tmp', 'v71iXLMw3yHjfyAURSKPeX0Hpzv1XzdV82y1rxud.pdf', 'proses', '2025-02-12 02:02:53', '2025-02-12 02:02:53');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pengajuan_skik`
+--
+
+CREATE TABLE `pengajuan_skik` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `anggota_id` bigint(20) UNSIGNED NOT NULL,
+  `no_pengajuan` varchar(255) NOT NULL,
+  `pengantar_rw` varchar(255) NOT NULL,
+  `ktp` varchar(255) NOT NULL,
+  `status` varchar(255) DEFAULT 'proses',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `pengajuan_skik`
+--
+
+INSERT INTO `pengajuan_skik` (`id`, `anggota_id`, `no_pengajuan`, `pengantar_rw`, `ktp`, `status`, `created_at`, `updated_at`) VALUES
+(1, 1, '6b86c66f-d537-444f-a685-cb05b9f2d34f', 'TSOjR79m2NpWO4QWD3lCthZVcYbq3Q435uNqfBKy.pdf', 'C:\\xampp\\tmp\\php6116.tmp', 'disetujui', '2025-02-12 03:16:58', '2025-02-12 03:17:45');
 
 -- --------------------------------------------------------
 
@@ -300,6 +402,13 @@ CREATE TABLE `pengajuan_skl` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `pengajuan_skl`
+--
+
+INSERT INTO `pengajuan_skl` (`id`, `anggota_id`, `no_pengajuan`, `pengantar_rw`, `nama_anak`, `tempat_lahir`, `tanggal_lahir`, `nama_ayah`, `nama_ibu`, `status`, `created_at`, `updated_at`) VALUES
+(1, 1, 'ced6f1ff-82cb-49a5-b189-cf222a8e91b3', 'JmOwDGOESGSM7wgaowyc7o143nz2GSFbfoSYftYx.png', 'amir', 'cinta kasih', '2025-02-04', 'kemas', 'miju', 'disetujui', '2025-02-11 05:41:18', '2025-02-11 05:42:05');
 
 -- --------------------------------------------------------
 
@@ -373,6 +482,13 @@ CREATE TABLE `penolakan` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `penolakan`
+--
+
+INSERT INTO `penolakan` (`id`, `surat_id`, `no_pengajuan`, `pesan`, `jenis_surat`, `created_at`, `updated_at`) VALUES
+(1, 2, '7906c8ac-92d8-45ff-a122-e1544b45a345', 'jelek', 'Pengajuan KTP', '2025-02-07 02:16:05', '2025-02-07 02:16:05');
+
 -- --------------------------------------------------------
 
 --
@@ -409,6 +525,16 @@ CREATE TABLE `surat_keluar` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `surat_keluar`
+--
+
+INSERT INTO `surat_keluar` (`id`, `surat_id`, `no_pengajuan`, `no_surat`, `jenis_surat`, `file`, `created_at`, `updated_at`) VALUES
+(1, 1, '9879103d-a1c6-4e29-9172-e297dc4d57ad', '01', 'Pengajuan KTP', '36PlUJffB7AmVSslzD1PvtTY9Le6tjAWVVwWcPtv.pdf', '2025-02-07 02:09:33', '2025-02-07 02:09:33'),
+(2, 1, '96d74187-a2d7-4f2d-b9a6-9ed4b6bc1dff', '02', 'Pengajuan Akta', 'Ws5VzNLpRQLgZ2aZUejOSJhBAu95t7sS114qxlec.pdf', '2025-02-08 02:21:39', '2025-02-08 02:21:39'),
+(3, 1, 'ced6f1ff-82cb-49a5-b189-cf222a8e91b3', '03', 'Pengajuan SKL', 'vJW0UMoj65Dxz9joIORdLTTqQNC5XVPQzFeJyq4w.pdf', '2025-02-11 05:42:05', '2025-02-11 05:42:05'),
+(4, 1, '6b86c66f-d537-444f-a685-cb05b9f2d34f', '04', 'Pengajuan SKIK', 'xgDAFRXuF8TfcjfMXox8R6y1YwubRn3liIi4GegV.pdf', '2025-02-12 03:17:45', '2025-02-12 03:17:45');
+
 -- --------------------------------------------------------
 
 --
@@ -430,8 +556,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `role`, `username`, `password`, `created_at`, `updated_at`) VALUES
-(1, 'Admin Desa', 'admin', 'admin', '$2y$10$aK.eOdrqYMjGLY1uSAcgNe5H4YltuqRuFjutcBq.1q4Nz8KxaVhC6', '2023-09-11 18:12:29', '2023-09-11 18:12:29'),
-(2, 'Pengunjung', 'viewer', 'viewer', '$2y$10$Zz87nQLDa1vKChLeWuoTlO0xi1CDTA7NqxzPsSupoPOOjDnPJuJla', '2023-09-11 18:12:29', '2023-09-11 18:12:29');
+(1, 'Admin Desa', 'admin', 'admin', '$2y$10$uDm5Cs9jI2k0tPLhU/puHuEsNTDGYpKcHnBCYgqtbGSuhUweXkwdu', '2025-02-07 01:51:50', '2025-02-07 01:51:50'),
+(2, 'Pengunjung', 'viewer', 'viewer', '$2y$10$wEZYICrdTFRBe5AItP/a0ODziy87p7f1rWWHifesSuMIEMxmfD6l6', '2025-02-07 01:51:51', '2025-02-07 01:51:51'),
+(4, 'M.Parhan', 'viewer', 'parhan', '$2y$10$URPMXZheVRWE8Enp5aaHgOvb5F29r/zpRmwLcAXZVRPNJTXjn5l1y', '2025-02-07 02:03:26', '2025-02-07 02:03:26');
 
 --
 -- Indexes for dumped tables
@@ -516,6 +643,22 @@ ALTER TABLE `pengajuan_skbm`
   ADD KEY `pengajuan_skbm_anggota_id_foreign` (`anggota_id`);
 
 --
+-- Indexes for table `pengajuan_skd`
+--
+ALTER TABLE `pengajuan_skd`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `pengajuan_skd_no_pengajuan_unique` (`no_pengajuan`),
+  ADD KEY `pengajuan_skd_anggota_id_foreign` (`anggota_id`);
+
+--
+-- Indexes for table `pengajuan_skik`
+--
+ALTER TABLE `pengajuan_skik`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `pengajuan_skik_no_pengajuan_unique` (`no_pengajuan`),
+  ADD KEY `pengajuan_skik_anggota_id_foreign` (`anggota_id`);
+
+--
 -- Indexes for table `pengajuan_skjd`
 --
 ALTER TABLE `pengajuan_skjd`
@@ -598,7 +741,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `anggota_keluarga`
 --
 ALTER TABLE `anggota_keluarga`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -610,31 +753,31 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `kartu_keluarga`
 --
 ALTER TABLE `kartu_keluarga`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `kegiatan`
 --
 ALTER TABLE `kegiatan`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `pengaduan`
 --
 ALTER TABLE `pengaduan`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `pengajuan_akta`
 --
 ALTER TABLE `pengajuan_akta`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `pengajuan_kk`
@@ -646,13 +789,25 @@ ALTER TABLE `pengajuan_kk`
 -- AUTO_INCREMENT for table `pengajuan_ktp`
 --
 ALTER TABLE `pengajuan_ktp`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `pengajuan_skbm`
 --
 ALTER TABLE `pengajuan_skbm`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `pengajuan_skd`
+--
+ALTER TABLE `pengajuan_skd`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `pengajuan_skik`
+--
+ALTER TABLE `pengajuan_skik`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `pengajuan_skjd`
@@ -670,7 +825,7 @@ ALTER TABLE `pengajuan_skkb`
 -- AUTO_INCREMENT for table `pengajuan_skl`
 --
 ALTER TABLE `pengajuan_skl`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `pengajuan_skm`
@@ -694,7 +849,7 @@ ALTER TABLE `pengajuan_skw`
 -- AUTO_INCREMENT for table `penolakan`
 --
 ALTER TABLE `penolakan`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -706,13 +861,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `surat_keluar`
 --
 ALTER TABLE `surat_keluar`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
@@ -747,6 +902,18 @@ ALTER TABLE `pengajuan_ktp`
 --
 ALTER TABLE `pengajuan_skbm`
   ADD CONSTRAINT `pengajuan_skbm_anggota_id_foreign` FOREIGN KEY (`anggota_id`) REFERENCES `anggota_keluarga` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `pengajuan_skd`
+--
+ALTER TABLE `pengajuan_skd`
+  ADD CONSTRAINT `pengajuan_skd_anggota_id_foreign` FOREIGN KEY (`anggota_id`) REFERENCES `anggota_keluarga` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `pengajuan_skik`
+--
+ALTER TABLE `pengajuan_skik`
+  ADD CONSTRAINT `pengajuan_skik_anggota_id_foreign` FOREIGN KEY (`anggota_id`) REFERENCES `anggota_keluarga` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `pengajuan_skjd`

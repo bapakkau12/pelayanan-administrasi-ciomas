@@ -14,6 +14,8 @@ use App\Models\PengajuanSKL;
 use App\Models\PengajuanSKM;
 use App\Models\PengajuanSKTM;
 use App\Models\PengajuanSKW;
+use App\Models\PengajuanSKD;
+use App\Models\PengajuanSKIK;
 use Illuminate\Http\Request;
 
 class LandingController extends Controller
@@ -33,8 +35,10 @@ class LandingController extends Controller
         $skm = PengajuanSKM::count();
         $sktm = PengajuanSKTM::count();
         $skw = PengajuanSKW::count();
+        $skd = PengajuanSKD::count();
+        $skik = PengajuanSKIK::count();
 
-        $totalPengajuan = $akta + $kk + $ktp + $skbm + $skjd + $skkb + $skl + $skm + $sktm + $skw;
+        $totalPengajuan = $akta + $kk + $ktp + $skbm + $skjd + $skkb + $skl + $skm + $sktm + $skw + $skd + $skik;
 
         return view('index', [
             'totalPenduduk' => $totalPenduduk,

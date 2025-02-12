@@ -1,6 +1,6 @@
 @extends('layouts.landing')
 @section('content')
-@section('title-page', 'Pengaduan Desa Ciomas')
+@section('title-page', 'Pengaduan Desa Cinta Kasih')
 <section class="wrapper">
     <div class="container-fluid">
         <div class="container">
@@ -44,7 +44,7 @@
                             </div>
                             <div class="mt-4">
                                 <button type="reset" class="btn btn-secondary">Reset</button>
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-success">Submit</button>
                             </div>
                         </div>
                     </form>

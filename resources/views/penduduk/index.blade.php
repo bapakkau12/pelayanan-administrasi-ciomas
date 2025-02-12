@@ -4,9 +4,9 @@
     <div class="row g-4">
         <div class="col-12">
             <div class="bg-light rounded p-4">
-                <h2 class="h4 mb-4">Data Kependudukan Desa Ciomas</h2>
+                <h2 class="h4 mb-4">Data Kependudukan Desa Cinta Kasih</h2>
                 <div class="d-flex gap-2 mb-3">
-                    <a href="{{ route('penduduk.create_anggota_keluarga') }}" class="btn btn-primary">Tambah</a>
+                    <a href="{{ route('penduduk.create_anggota_keluarga') }}" class="btn btn-success">Tambah</a>
                 </div>
                 <table id="penduduk-table" class="display" style="width:100%">
                     <thead>
@@ -29,7 +29,7 @@
             <div class="bg-light rounded p-4">
                 <h2 class="h4 mb-4">Data Kartu Keluarga</h2>
                 <div class="d-flex gap-2 mb-3">
-                    <a href="{{ route('penduduk.create_kartu_keluarga') }}" class="btn btn-primary">Tambah</a>
+                    <a href="{{ route('penduduk.create_kartu_keluarga') }}" class="btn btn-success">Tambah</a>
                 </div>
                 <table id="kartu-keluarga-table" class="display" style="width:100%">
                     <thead>

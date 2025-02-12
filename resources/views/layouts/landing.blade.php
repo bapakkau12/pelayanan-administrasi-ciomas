@@ -3,13 +3,15 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Ciomas Website</title>
+    <title>PELDES CK - DESA CINTA KASIH</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="ciomas website" name="keywords">
-    <meta content="ciomas website" name="description">
+    <meta content="Cinta_Kasih website" name="keywords">
+    <meta content="Cinta_Kasih website" name="description">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- <link href="img/favicon.ico" rel="icon"> -->
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/images/muaraenim_logo.png') }}">
+
     @include('includes.landing_head')
     @stack('landing_head')
 </head>
@@ -23,9 +25,9 @@
         <div class="row gx-0">
             <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>Jl. Raya Panjalu-Kawali no.83</small>
-                    <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>+012 345 6789</small>
-                    <small class="text-light"><i class="fa fa-envelope-open me-2"></i>desaciomas.com</small>
+                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>Jl. Negara Dusun IV Desa Cinta Kasih Kode Pos 31352</small>
+                    <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>+81247403454</small>
+                    <small class="text-light"><i class="fa fa-envelope-open me-2"></i>desacintakasih.com</small>
                 </div>
             </div>
             <div class="col-lg-4 text-center text-lg-end">
@@ -44,7 +46,7 @@
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
             <a href="#" class="navbar-brand p-0">
-                <img width="40" src="{{ asset('assets/images/ciamis_logo.png') }}" alt="ciamis logo">
+                <img width="40" src="{{ asset('assets/images/muaraenim_logo.png') }}" alt="muaraenim logo">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>
@@ -61,7 +63,7 @@
                         </div>
                     </div>
                     <div class="nav-item d-flex align-items-center ms-5">
-                        <a class="btn btn-primary" href="{{ route('login') }}">Masuk</a>
+                        <a class="btn btn-success" href="{{ route('login') }}">Masuk</a>
                     </div>
                 </div>
             </div>
@@ -75,9 +77,9 @@
                 <img class="w-100" src="{{ asset('assets/images/carousel-1.jpg') }}" alt="Image">
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                     <div class="p-3" style="max-width: 900px;">
-                        <h5 class="text-white text-uppercase mb-3 animated slideInDown">Desa Ciomas</h5>
-                        <h1 class="display-4 text-white mb-md-4 animated zoomIn">Mahayuna Ayuna Kadatuan</h1>
-                        <a href="{{ route('public.pengajuan') }}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Pengajuan Surat</a>
+                        <h5 class="text-white text-uppercase mb-3 animated slideInDown">Desa Cinta Kasih</h5>
+                        <h1 class="display-4 text-white mb-md-4 animated zoomIn">EMPAT PETULAI DALAM BELIMBING</h1>
+                        <a href="{{ route('public.pengajuan') }}" class="btn btn-success py-md-3 px-md-5 me-3 animated slideInLeft">Pengajuan Surat</a>
                         <a href="" class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight">Pengaduan</a>
                     </div>
                 </div>
@@ -86,9 +88,9 @@
                 <img class="w-100" src="{{ asset('assets/images/carousel-2.jpg') }}" alt="Image">
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                     <div class="p-3" style="max-width: 900px;">
-                        <h5 class="text-white text-uppercase mb-3 animated slideInDown">Desa Ciomas</h5>
-                        <h1 class="display-4 text-white mb-md-4 animated zoomIn">Menghadapi Pembangunan Kebahagiaan Daerah</h1>
-                        <a href="{{ route('public.pengajuan') }}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Pengajuan Surat</a>
+                        <h5 class="text-white text-uppercase mb-3 animated slideInDown">Desa Cinta Kasih</h5>
+                        <h1 class="display-4 text-white mb-md-4 animated zoomIn">PELAYANAN ADMINISTRASI TERPADU</h1>
+                        <a href="{{ route('public.pengajuan') }}" class="btn btn-success py-md-3 px-md-5 me-3 animated slideInLeft">Pengajuan Surat</a>
                         <a href="" class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight">Pengaduan</a>
                     </div>
                 </div>
@@ -118,25 +120,25 @@
                     <div class="row gx-5">
                         <div class="col-lg-4 col-md-12 pt-5 mb-5">
                             <div class="section-title section-title-sm position-relative pb-3 mb-4">
-                                <h3 class="text-light mb-0">Desa Ciomas</h3>
+                                <h3 class="text-light mb-0">Desa Cinta Kasih</h3>
                             </div>
                             <div class="d-flex mb-2">
-                                <i class="bi bi-geo-alt text-primary me-2"></i>
-                                <p class="mb-0">Jl. Raya Panjalu-Kawali no.83</p>
+                                <i class="bi bi-geo-alt text-success me-2"></i>
+                                <p class="mb-0">Jl. Negara Dusun IV Desa Cinta Kasih Kode Pos 31352</p>
                             </div>
                             <div class="d-flex mb-2">
-                                <i class="bi bi-envelope-open text-primary me-2"></i>
-                                <p class="mb-0">desaciomas.com</p>
+                                <i class="bi bi-envelope-open text-success me-2"></i>
+                                <p class="mb-0">desacintakasih.com</p>
                             </div>
                             <div class="d-flex mb-2">
-                                <i class="bi bi-telephone text-primary me-2"></i>
-                                <p class="mb-0">+012 345 67890</p>
+                                <i class="bi bi-telephone text-succsess me-2"></i>
+                                <p class="mb-0">+81247403454</p>
                             </div>
                             <div class="d-flex mt-4">
-                                <a class="btn btn-primary btn-square me-2" href="#"><i class="fab fa-twitter fw-normal"></i></a>
-                                <a class="btn btn-primary btn-square me-2" href="#"><i class="fab fa-facebook-f fw-normal"></i></a>
-                                <a class="btn btn-primary btn-square me-2" href="#"><i class="fab fa-linkedin-in fw-normal"></i></a>
-                                <a class="btn btn-primary btn-square" href="#"><i class="fab fa-instagram fw-normal"></i></a>
+                                <a class="btn btn-success btn-square me-2" href="#"><i class="fab fa-twitter fw-normal"></i></a>
+                                <a class="btn btn-success btn-square me-2" href="#"><i class="fab fa-facebook-f fw-normal"></i></a>
+                                <a class="btn btn-success btn-square me-2" href="#"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                                <a class="btn btn-success btn-square" href="#"><i class="fab fa-instagram fw-normal"></i></a>
                             </div>
                         </div>
                     </div>
@@ -146,11 +148,11 @@
     </div>
     <div class="container-fluid text-white" style="background: #061429;">
         <div class="container text-center">
-            <p class="mb-0">&copy; Website Desa Ciomas. All Rights Reserved.
+            <p class="mb-0">&copy; Website Desa Cinta Kasih. All Rights Reserved.
         </div>
     </div>
 
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <a href="#" class="btn btn-lg btn-success btn-lg-square rounded back-to-top"><i class="bi bi-arrow-up"></i></a>
 
     @include('includes.landing_script')
     @stack('landing_script')

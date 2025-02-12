@@ -13,7 +13,9 @@ use App\Models\PengajuanSKKB;
 use App\Models\PengajuanSKL;
 use App\Models\PengajuanSKM;
 use App\Models\PengajuanSKTM;
+use App\Models\PengajuanSKD;
 use App\Models\PengajuanSKW;
+use App\Models\PengajuanSKIK;
 use App\Models\Penolakan;
 use App\Models\SuratKeluar;
 use Illuminate\Http\Request;
@@ -73,6 +75,13 @@ class PengajuanController extends Controller
                 $query->where('nik', $nik);
             })->select('*', DB::raw("'Pengajuan SKW' as jenis_pengajuan"))->with('anggotaKeluarga')->get();
 
+            $pengajuanSKD = PengajuanSKD::whereHas('anggotaKeluarga', function ($query) use ($nik) {
+                $query->where('nik', $nik);
+            })->select('*', DB::raw("'Pengajuan SKD' as jenis_pengajuan"))->with('anggotaKeluarga')->get();
+            $pengajuanSKIK = PengajuanSKIK::whereHas('anggotaKeluarga', function ($query) use ($nik) {
+                $query->where('nik', $nik);
+            })->select('*', DB::raw("'Pengajuan SKIK' as jenis_pengajuan"))->with('anggotaKeluarga')->get();
+
             $data = Collection::make()
                 ->concat($pengajuanKK)
                 ->concat($pengajuanKTP)
@@ -84,6 +93,8 @@ class PengajuanController extends Controller
                 ->concat($pengajuanSKL)
                 ->concat($pengajuanSKM)
                 ->concat($pengajuanSKW)
+                ->concat($pengajuanSKD)
+                ->concat($pengajuanSKIK)
                 ->sortByDesc('created_at')
                 ->values();
 
@@ -155,6 +166,12 @@ class PengajuanController extends Controller
                 ->select('*', DB::raw("'Pengajuan SKW' as jenis_pengajuan"))
                 ->get();
 
+            $pengajuan_skd = PengajuanSKD::with(['AnggotaKeluarga'])
+                ->select('*', DB::raw("'Pengajuan SKD' as jenis_pengajuan"))
+                ->get();
+            $pengajuan_skik = PengajuanSKIK::with(['AnggotaKeluarga'])
+                ->select('*', DB::raw("'Pengajuan SKIK' as jenis_pengajuan"))
+                ->get();
 
             $data = $pengajuan_kk
                 ->concat($pengajuan_ktp)
@@ -166,6 +183,8 @@ class PengajuanController extends Controller
                 ->concat($pengajuan_skl)
                 ->concat($pengajuan_skm)
                 ->concat($pengajuan_skw)
+                ->concat($pengajuan_skd)
+                ->concat($pengajuan_skik)
                 ->sortByDesc('created_at')
                 ->values();
 
@@ -201,6 +220,10 @@ class PengajuanController extends Controller
                 $data = PengajuanSKM::with('AnggotaKeluarga')->findOrFail($id);
             } else if ($jenis_surat === "Pengajuan SKW") {
                 $data = PengajuanSKW::with('AnggotaKeluarga')->findOrFail($id);
+            } else if ($jenis_surat === "Pengajuan SKD") {
+                $data = PengajuanSKD::with('AnggotaKeluarga')->findOrFail($id);
+            } else if ($jenis_surat === "Pengajuan SKIK") {
+                $data = PengajuanSKIK::with('AnggotaKeluarga')->findOrFail($id);
             } else {
                 return redirect()->back()->with('error', 'detail pengajuan tidak diketahui');
             }
@@ -224,7 +247,7 @@ class PengajuanController extends Controller
         if ($anggotaKeluarga) {
             $request['anggota_id'] = $anggotaKeluarga->id;
         } else {
-            return redirect()->back()->with('error', 'NIK anda belum terdaftar di desa ciomas, silahkan hubungi aparatur desa');
+            return redirect()->back()->with('error', 'NIK anda belum terdaftar di desa Cinta Kasih, silahkan hubungi aparatur desa');
         }
 
         if ($request->input('tujuan') === 'kk') {
@@ -405,6 +428,40 @@ class PengajuanController extends Controller
             } else {
                 return redirect()->back()->with('error', 'Anda memiliki pengajuan yang belum terselesaikan');
             }
+        }else if ($request->input('tujuan') === 'skd') {
+            $exists = PengajuanSKD::where('anggota_id', $request->input('anggota_id'))->where('status', 'proses')->exists();
+            if (!$exists) {
+                if ($request->hasFile('pengantar_rw')) {
+                    $pengantar_rw = basename($request->file('pengantar_rw')->store('public/files'));
+
+                    $data = $request->except(['pengantar_rw', 'tujuan']);
+                    $data['pengantar_rw'] = $pengantar_rw;
+                    $data['status'] = 'proses';
+
+                    PengajuanSKD::create($data);
+                } else {
+                    return redirect()->back()->with('error', 'Terjadi kesalahan, silahkan coba lagi');
+                }
+            } else {
+                return redirect()->back()->with('error', 'Anda memiliki pengajuan yang belum terselesaikan');
+            }
+        }else if ($request->input('tujuan') === 'skik') {
+            $exists = PengajuanSKIK::where('anggota_id', $request->input('anggota_id'))->where('status', 'proses')->exists();
+            if (!$exists) {
+                if ($request->hasFile('pengantar_rw')) {
+                    $pengantar_rw = basename($request->file('pengantar_rw')->store('public/files'));
+
+                    $data = $request->except(['pengantar_rw', 'tujuan']);
+                    $data['pengantar_rw'] = $pengantar_rw;
+                    $data['status'] = 'proses';
+
+                    PengajuanSKIK::create($data);
+                } else {
+                    return redirect()->back()->with('error', 'Terjadi kesalahan, silahkan coba lagi');
+                }
+            } else {
+                return redirect()->back()->with('error', 'Anda memiliki pengajuan yang belum terselesaikan');
+            }
         }
 
         return redirect()->back()->with('success', 'Permintaan anda akan kami proses');
@@ -434,6 +491,10 @@ class PengajuanController extends Controller
                 PengajuanSKM::findOrFail($id)->delete();
             } else if ($jenis_surat === "Pengajuan SKW") {
                 PengajuanSKW::findOrFail($id)->delete();
+            } else if ($jenis_surat === "Pengajuan SKD") {
+                PengajuanSKD::findOrFail($id)->delete();
+            } else if ($jenis_surat === "Pengajuan SKIK") {
+                PengajuanSKIK::findOrFail($id)->delete();
             } else {
                 return redirect()->back()->with('error', 'detail pengajuan tidak diketahui');
             }

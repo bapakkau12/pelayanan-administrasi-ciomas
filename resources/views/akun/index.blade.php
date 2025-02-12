@@ -6,7 +6,7 @@
             <div class="bg-light rounded p-4">
                 <h2 class="h4 mb-4">Manage Akun</h2>
                 <div class="d-flex gap-2 mb-3">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambah-akun">Tambah</button>
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#tambah-akun">Tambah</button>
                 </div>
                 <table id="akun-table" class="display" style="width:100%">
                     <thead>
@@ -57,7 +57,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <button type="submit" class="btn btn-success">Simpan</button>
                 </div>
             </form>
         </div>
@@ -98,7 +98,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <button type="submit" class="btn btn-success">Simpan</button>
                 </div>
             </form>
         </div>

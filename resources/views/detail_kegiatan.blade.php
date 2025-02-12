@@ -1,6 +1,6 @@
 @extends('layouts.landing')
 @section('content')
-@section('title-page', 'Kegiatan Desa Ciomas')
+@section('title-page', 'Kegiatan Desa Cinta Kasih')
 <section class="wrapper">
     <div class="container-fluid">
         <div class="container">

@@ -15,6 +15,8 @@ use App\Models\PengajuanSKL;
 use App\Models\PengajuanSKM;
 use App\Models\PengajuanSKTM;
 use App\Models\PengajuanSKW;
+use App\Models\PengajuanSKD;
+use App\Models\PengajuanSKIK;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -35,8 +37,10 @@ class DashboardController extends Controller
         $skm = PengajuanSKM::count();
         $sktm = PengajuanSKTM::count();
         $skw = PengajuanSKW::count();
+        $skd = PengajuanSKD::count();
+        $skik = PengajuanSKIK::count();
 
-        $totalPengajuan = $akta + $kk + $ktp + $skbm + $skjd + $skkb + $skl + $skm + $sktm + $skw;
+        $totalPengajuan = $akta + $kk + $ktp + $skbm + $skjd + $skkb + $skl + $skm + $sktm + $skw + $skd + $skik;
 
         $listPengajuan = [
             [
@@ -78,6 +82,14 @@ class DashboardController extends Controller
             [
                 'jenis' => 'SKW',
                 'total' => $skw,
+            ],
+            [
+                'jenis' => 'SKD',
+                'total' => $skd,
+            ],
+            [
+                'jenis' => 'SKIK',
+                'total' => $skik,
             ],
         ];
 

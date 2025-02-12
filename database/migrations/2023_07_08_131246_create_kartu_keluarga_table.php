@@ -17,11 +17,11 @@ return new class extends Migration
             $table->bigInteger('no_kk')->unique();
             $table->text('alamat')->nullable();
             $table->string('rt_rw')->nullable();
-            $table->string('desa')->default('Ciomas')->nullable();
-            $table->string('kecamatan')->default('Panjalu')->nullable();
-            $table->string('kabupaten')->default('Ciamis')->nullable();
+            $table->string('desa')->default('Cintak_Kasih')->nullable();
+            $table->string('kecamatan')->default('Belimbing')->nullable();
+            $table->string('kabupaten')->default('Muara_Enim')->nullable();
             $table->integer('kode_pos')->default(46264)->nullable();
-            $table->string('provinsi')->default('Jawa Barat')->nullable();
+            $table->string('provinsi')->default('Sumatera_Selatan')->nullable();
             $table->timestamps();
         });
     }

@@ -36,7 +36,7 @@ class DatabaseSeeder extends Seeder
         //         'kecamatan' => 'KiaraCondong',
         //         'kabupaten' => 'Kota Bandung',
         //         'kode_pos' => '45443',
-        //         'provinsi' => 'Jawa Barat',
+        //         'provinsi' => 'Sumatera_Selatan',
         //     ]),
         //     'nik' => '20012378729101',
         //     'nama' => 'Mulyadi',

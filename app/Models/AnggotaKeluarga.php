@@ -86,6 +86,15 @@ class AnggotaKeluarga extends Model
         return $this->hasMany(PengajuanSKW::class, 'anggota_id');
     }
 
+    public function pengajuanSKD()
+    {
+        return $this->hasMany(PengajuanSKD::class, 'anggota_id');
+    }
+
+    public function pengajuanSKIK()
+    {
+        return $this->hasMany(PengajuanSKIK::class, 'anggota_id');
+    }
     protected function createdAt(): Attribute
     {
         return Attribute::make(

@@ -12,6 +12,8 @@ use App\Models\PengajuanSKL;
 use App\Models\PengajuanSKM;
 use App\Models\PengajuanSKTM;
 use App\Models\PengajuanSKW;
+use App\Models\PengajuanSKD;
+use App\Models\PengajuanSKIK;
 use App\Models\SuratKeluar;
 use App\Models\Penolakan;
 use Illuminate\Http\Request;
@@ -50,6 +52,10 @@ class PenolakanController extends Controller
                 $data = PengajuanSKM::with('AnggotaKeluarga')->findOrFail($request->surat_id);
             } else if ($jenis_surat === "Pengajuan SKW") {
                 $data = PengajuanSKW::with('AnggotaKeluarga')->findOrFail($request->surat_id);
+            } else if ($jenis_surat === "Pengajuan SKD") {
+                $data = PengajuanSKD::with('AnggotaKeluarga')->findOrFail($request->surat_id);
+            } else if ($jenis_surat === "Pengajuan SKIK") {
+                $data = PengajuanSKIK::with('AnggotaKeluarga')->findOrFail($request->surat_id);
             } else {
                 return redirect()->back()->with('error', 'pengajuan tidak ditemukan');
             }
